@@ -41,21 +41,29 @@ export default function KeywordInput({ titleValue, descValue }) {
       <Flex>
         <Input placeholder="Keyword" onChange={handleChangeKey} />
         <Flex width="300px" gap="20px">
-          <Flex direction="column" align="center">
+          <Flex direction="column" align="center"  >
             <Text>Title:</Text>
             {key?.length > 0 ? (
-              <Text
-                fontWeight="700"
-                bg={
-                  foundTitle?.length < 6
-                    ? "green"
-                    : foundTitle?.length < 11
-                    ? "orange"
-                    : "red"
-                }
+              <Flex width="50px" height="50px" borderRadius="50" align="center" 
+              justify="center" 
+              textAlign="center" 
+              bg={
+                foundTitle?.length < 6
+                  ? "green"
+                  : foundTitle?.length < 11
+                  ? "orange"
+                  : "red"
+              }
+              >
+              <Text 
+             
+
+              fontWeight="700"
+               
               >
                 {foundTitle?.length}
               </Text>
+              </Flex>
             ) : (
               "0"
             )}
@@ -63,18 +71,23 @@ export default function KeywordInput({ titleValue, descValue }) {
           <Flex direction="column" align="center">
             <Text>Description:</Text>
             {key?.length > 0 ? (
+                 <Flex width="50px" height="50px" borderRadius="50" align="center" 
+                 justify="center" 
+                 textAlign="center" 
+                 bg={
+                   foundDesc?.length < 10
+                     ? "green"
+                     : foundDesc?.length < 21
+                     ? "orange"
+                     : "red"
+                 } >
               <Text
                 fontWeight="700"
-                bg={
-                  foundDesc?.length < 11
-                    ? "green"
-                    : foundDesc?.length < 21
-                    ? "orange"
-                    : "red"
-                }
+                
               >
                 {foundDesc?.length}
               </Text>
+              </Flex>
             ) : (
               "0"
             )}
