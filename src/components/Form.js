@@ -49,6 +49,7 @@ export default function Form() {
         charLimit={250}
       />
          <KeywordInput textValue = {valueTitle}  />
+         <KeywordInput textValue = {valueDescription}  />
      
     </Flex>
   );
