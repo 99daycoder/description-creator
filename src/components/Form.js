@@ -4,15 +4,17 @@ import KeywordInput from "./KeywordInput";
 
 const InputField = ({ placeholder, value, onChange, charLimit }) => {
   return (
-    <Flex direction="row">
+    <Flex direction="row" justify='space-between'>
       <Textarea
         placeholder={placeholder}
         value={value}
         onChange={onChange}
       ></Textarea>
+      <Flex minW='100px' align='center' justify='center'>
       <Text bg={value.length > charLimit ? "red" : "none"}>
         {value.length}/{charLimit}
       </Text>
+      </Flex>
     </Flex>
   );
 };
@@ -26,7 +28,8 @@ export default function Form() {
     setValueDescription(event.target.value);
   const handleChangeKeywords = (event) => setValueKeywords(event.target.value);
   return (
-    <Flex direction="column" margin="10px">
+    <Flex justifyContent='center' justifyItems='center' bg='blue'maxWidth='1500px' width='90%' margin='10px' justify='space-between' >
+    <Flex direction="column" margin="10px" bg='yellow' width={{base:'300px', md:'600px', lg:'1000px'}}>
       <InputField
         placeholder="Type your title here"
         value={valueTitle}
@@ -45,11 +48,18 @@ export default function Form() {
         onChange={handleChangeKeywords}
         charLimit={250}
       />
+      </Flex>
+     
+    
+      <Flex direction='column'>
       <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
       <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
       <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
       <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
       <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
+      
+      </Flex>
+    
     </Flex>
   );
 }

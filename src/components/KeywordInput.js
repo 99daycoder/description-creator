@@ -40,9 +40,9 @@ export default function KeywordInput({ titleValue, descValue }) {
     <Flex>
       <Flex>
         <Input placeholder="Keyword" onChange={handleChangeKey} />
-
-        {key.length > 0 ? (
-          <Text
+        <Flex width='300px'>
+        {key?.length > 0 ? (
+          <Text 
             bg={
               foundTitle?.length < 6
                 ? "green"
@@ -51,13 +51,13 @@ export default function KeywordInput({ titleValue, descValue }) {
                 : "red"
             }
           >
-            In Title: {foundTitle?.length}
+            Title: {foundTitle?.length}
           </Text>
         ) : (
           "In Title: 0"
         )}
-        {key.length > 0 ? (
-          <Text
+        {key?.length > 0 ? (
+          <Text 
             bg={
               foundDesc?.length < 11
                 ? "green"
@@ -66,11 +66,12 @@ export default function KeywordInput({ titleValue, descValue }) {
                 : "red"
             }
           >
-            In Description: {foundDesc?.length}
+            Description: {foundDesc?.length}
           </Text>
         ) : (
           "In Description: 0"
         )}
+        </Flex> 
       </Flex>
     </Flex>
   );
