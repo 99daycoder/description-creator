@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Flex, Input, Text, Textarea } from "@chakra-ui/react";
-export default function KeywordInput({ textValue }) {
-  const [key1, setKey1] = useState("");
-  const handleChangeKey1 = (event) => setKey1(event.target.value);
-  const regex = new RegExp(key1, "g");
-  const found = textValue?.match(regex);
+export default function KeywordInput({ titleValue, descValue }) {
+  const [key, setKey] = useState("");
+  const handleChangeKey = (event) => setKey(event.target.value);
+  const regex = new RegExp(key, "gi");
+  const foundTitle = titleValue?.match(regex);
+  const foundDesc = descValue?.match(regex);
   /* 
 - To display number of times used in Title:
     We need a state that holds the number-of-times for the title
@@ -38,17 +39,38 @@ export default function KeywordInput({ textValue }) {
   return (
     <Flex>
       <Flex>
-        <Input placeholder="Keyword" onChange={handleChangeKey1} />
+        <Input placeholder="Keyword" onChange={handleChangeKey} />
 
-        {key1.length>0  ?
-        <Text
-          bg={found?.length < 6 ? "green" : found?.length < 11 ? "orange" : "red"}
-        >
-        In Title: {found?.length} 
-        </Text>
- : '0' }
- <Text> In Description: 0</Text>
-
+        {key.length > 0 ? (
+          <Text
+            bg={
+              foundTitle?.length < 6
+                ? "green"
+                : foundTitle?.length < 11
+                ? "orange"
+                : "red"
+            }
+          >
+            In Title: {foundTitle?.length}
+          </Text>
+        ) : (
+          "In Title: 0"
+        )}
+        {key.length > 0 ? (
+          <Text
+            bg={
+              foundDesc?.length < 11
+                ? "green"
+                : foundDesc?.length < 21
+                ? "orange"
+                : "red"
+            }
+          >
+            In Description: {foundDesc?.length}
+          </Text>
+        ) : (
+          "In Description: 0"
+        )}
       </Flex>
     </Flex>
   );

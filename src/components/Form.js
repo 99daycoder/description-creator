@@ -2,7 +2,6 @@ import { Flex, Input, Text, Textarea } from "@chakra-ui/react";
 import React from "react";
 import KeywordInput from "./KeywordInput";
 
-
 const InputField = ({ placeholder, value, onChange, charLimit }) => {
   return (
     <Flex direction="row">
@@ -14,16 +13,14 @@ const InputField = ({ placeholder, value, onChange, charLimit }) => {
       <Text bg={value.length > charLimit ? "red" : "none"}>
         {value.length}/{charLimit}
       </Text>
-   
     </Flex>
-
   );
 };
 
 export default function Form() {
-    const [valueTitle, setValueTitle] = React.useState("");
-    const [valueDescription, setValueDescription] = React.useState("");
-    const [valueKeywords, setValueKeywords] = React.useState("");
+  const [valueTitle, setValueTitle] = React.useState("");
+  const [valueDescription, setValueDescription] = React.useState("");
+  const [valueKeywords, setValueKeywords] = React.useState("");
   const handleChangeTitle = (event) => setValueTitle(event.target.value);
   const handleChangeDescription = (event) =>
     setValueDescription(event.target.value);
@@ -48,9 +45,11 @@ export default function Form() {
         onChange={handleChangeKeywords}
         charLimit={250}
       />
-         <KeywordInput textValue = {valueTitle}  />
-         <KeywordInput textValue = {valueDescription}  />
-     
+      <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
+      <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
+      <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
+      <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
+      <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
     </Flex>
   );
 }
