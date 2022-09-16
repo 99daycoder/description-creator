@@ -1,12 +1,22 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Form from './components/Form';
+import { Flex } from '@chakra-ui/react';
+import KeywordInput from './components/KeywordInput';
+import React, {useState} from 'react';
+
+
+
 
 function App() {
+
   return (
-    <div className="App">
-      <Form/>
-    </div>
+    <Flex direction='row'>
+      <Form />
+   
+      </Flex>
+
+    
   );
 }
 
