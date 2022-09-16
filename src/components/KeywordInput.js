@@ -40,38 +40,46 @@ export default function KeywordInput({ titleValue, descValue }) {
     <Flex>
       <Flex>
         <Input placeholder="Keyword" onChange={handleChangeKey} />
-        <Flex width='300px'>
-        {key?.length > 0 ? (
-          <Text 
-            bg={
-              foundTitle?.length < 6
-                ? "green"
-                : foundTitle?.length < 11
-                ? "orange"
-                : "red"
-            }
-          >
-            Title: {foundTitle?.length}
-          </Text>
-        ) : (
-          "In Title: 0"
-        )}
-        {key?.length > 0 ? (
-          <Text 
-            bg={
-              foundDesc?.length < 11
-                ? "green"
-                : foundDesc?.length < 21
-                ? "orange"
-                : "red"
-            }
-          >
-            Description: {foundDesc?.length}
-          </Text>
-        ) : (
-          "In Description: 0"
-        )}
-        </Flex> 
+        <Flex width="300px" gap="20px">
+          <Flex direction="column" align="center">
+            <Text>Title:</Text>
+            {key?.length > 0 ? (
+              <Text
+                fontWeight="700"
+                bg={
+                  foundTitle?.length < 6
+                    ? "green"
+                    : foundTitle?.length < 11
+                    ? "orange"
+                    : "red"
+                }
+              >
+                {foundTitle?.length}
+              </Text>
+            ) : (
+              "0"
+            )}
+          </Flex>
+          <Flex direction="column" align="center">
+            <Text>Description:</Text>
+            {key?.length > 0 ? (
+              <Text
+                fontWeight="700"
+                bg={
+                  foundDesc?.length < 11
+                    ? "green"
+                    : foundDesc?.length < 21
+                    ? "orange"
+                    : "red"
+                }
+              >
+                {foundDesc?.length}
+              </Text>
+            ) : (
+              "0"
+            )}
+          </Flex>
+        </Flex>
       </Flex>
     </Flex>
   );

@@ -4,16 +4,16 @@ import KeywordInput from "./KeywordInput";
 
 const InputField = ({ placeholder, value, onChange, charLimit }) => {
   return (
-    <Flex direction="row" justify='space-between'>
+    <Flex direction="row" justify="space-between">
       <Textarea
         placeholder={placeholder}
         value={value}
         onChange={onChange}
       ></Textarea>
-      <Flex minW='100px' align='center' justify='center'>
-      <Text bg={value.length > charLimit ? "red" : "none"}>
-        {value.length}/{charLimit}
-      </Text>
+      <Flex minW="100px" align="center" justify="center">
+        <Text bg={value.length > charLimit ? "red" : "none"}>
+          {value.length}/{charLimit}
+        </Text>
       </Flex>
     </Flex>
   );
@@ -28,38 +28,46 @@ export default function Form() {
     setValueDescription(event.target.value);
   const handleChangeKeywords = (event) => setValueKeywords(event.target.value);
   return (
-    <Flex justifyContent='center' justifyItems='center' bg='blue'maxWidth='1500px' width='90%' margin='10px' justify='space-between' >
-    <Flex direction="column" margin="10px" bg='yellow' width={{base:'300px', md:'600px', lg:'1000px'}}>
-      <InputField
-        placeholder="Type your title here"
-        value={valueTitle}
-        onChange={handleChangeTitle}
-        charLimit={200}
-      />
-      <InputField
-        placeholder="Descrition goes here"
-        value={valueDescription}
-        onChange={handleChangeDescription}
-        charLimit={2000}
-      />
-      <InputField
-        placeholder="Type your backend keywords here"
-        value={valueKeywords}
-        onChange={handleChangeKeywords}
-        charLimit={250}
-      />
+    <Flex
+      justifyContent="center"
+      justifyItems="center"
+      maxWidth="1500px"
+      width="90%"
+      margin="10px"
+      justify="space-between"
+    >
+      <Flex
+        direction="column"
+        margin="10px"
+        width={{ base: "300px", md: "600px", lg: "1000px" }}
+      >
+        <InputField
+          placeholder="Type your title here"
+          value={valueTitle}
+          onChange={handleChangeTitle}
+          charLimit={200}
+        />
+        <InputField
+          placeholder="Descrition goes here"
+          value={valueDescription}
+          onChange={handleChangeDescription}
+          charLimit={2000}
+        />
+        <InputField
+          placeholder="Type your backend keywords here"
+          value={valueKeywords}
+          onChange={handleChangeKeywords}
+          charLimit={250}
+        />
       </Flex>
-     
-    
-      <Flex direction='column'>
-      <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
-      <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
-      <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
-      <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
-      <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
-      
+
+      <Flex direction="column">
+        <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
+        <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
+        <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
+        <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
+        <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
       </Flex>
-    
     </Flex>
   );
 }
