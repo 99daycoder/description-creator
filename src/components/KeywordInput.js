@@ -1,10 +1,11 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
 import { Flex, Input, Text, Textarea } from "@chakra-ui/react";
-export default function KeywordInput({textValue}) {
-    const [key1, setKey1] = useState('')
-    const handleChangeKey1 = (event) => setKey1(event.target.value);
-    const regex = /key1/g;
-/* 
+export default function KeywordInput({ textValue }) {
+  const [key1, setKey1] = useState("");
+  const handleChangeKey1 = (event) => setKey1(event.target.value);
+  const regex = new RegExp(key1, "g");
+  const found = textValue.match(regex);
+  /* 
 - To display number of times used in Title:
     We need a state that holds the number-of-times for the title
     How do we get that number?
@@ -24,16 +25,17 @@ export default function KeywordInput({textValue}) {
     2) Compare that with the Text Value from Title TextArea
 */
 
-
   return (
     <Flex>
-        <Flex>
-        <Input placeholder='Keyword' onChange={handleChangeKey1} /> 
-        <Text> Helloooo this is the text... {textValue}</Text>
-        <Text>{key1}</Text>
-        </Flex>
-       
+      <Flex>
+        <Input placeholder="Keyword" onChange={handleChangeKey1} />
 
-        </Flex>
-  )
+        <Text
+          bg={found.length < 6 ? "green" : found.length < 11 ? "orange" : "red"}
+        >
+          {found.length}
+        </Text>
+      </Flex>
+    </Flex>
+  );
 }
