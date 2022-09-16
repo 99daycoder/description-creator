@@ -1,4 +1,4 @@
-import { Flex, Input, Text, Textarea } from "@chakra-ui/react";
+import { Flex, Input, Text, Textarea, Button, Image } from "@chakra-ui/react";
 import React from "react";
 import KeywordInput from "./KeywordInput";
 
@@ -28,6 +28,7 @@ export default function Form() {
     setValueDescription(event.target.value);
   const handleChangeKeywords = (event) => setValueKeywords(event.target.value);
   return (
+   <Flex direction='column'>
     <Flex
       justifyContent="center"
       justifyItems="center"
@@ -68,6 +69,11 @@ export default function Form() {
         <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
         <KeywordInput titleValue={valueTitle} descValue={valueDescription} />
       </Flex>
+      
+    </Flex>
+    <Flex direction='column'>
+        <Button>Download Description</Button>
+        </Flex>
     </Flex>
   );
 }
